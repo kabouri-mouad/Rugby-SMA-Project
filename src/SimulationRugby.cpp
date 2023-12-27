@@ -35,18 +35,18 @@ void SimulationRugby::demarrer() {
                 window.close();
         }
 
-        // Move players and ball randomly
-        bougerEquipes();
-        bougerBallon();
+        this->init(window, sprite);
 
-        window.clear();
-        window.draw(sprite);
+        // window.clear();
+        // window.draw(sprite);
 
         // Dessinez les joueurs et le ballon
-        dessinerEquipes(window);
-        dessinerBallon(window);
+        // dessinerEquipes(window);
+        // dessinerBallon(window);
+        // window.display();
 
-        window.display();
+        // std::cout << "Sortir !" << "\n";
+
     }
 }
 
@@ -64,6 +64,31 @@ EquipeRugby& SimulationRugby::getEquipe2() {
 
 sf::Vector2f SimulationRugby::getWindowSize() {
     return windowSize;
+}
+
+void SimulationRugby::init(sf::RenderWindow &window, sf::Sprite & sprite) {
+
+    sf::Clock clock;  
+    sf::Time elapsed = clock.getElapsedTime();
+    while(window.isOpen() && clock.getElapsedTime().asSeconds() < 60) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        circulerJoueurs();
+        circulerBallon();
+
+        window.clear();
+        window.draw(sprite);
+
+        // Dessinez les joueurs et le ballon
+        dessinerEquipes(window);
+        dessinerBallon(window);
+        window.display();
+    }
+    window.close();
 }
 
 void SimulationRugby::initialiserEquipes() {
@@ -151,19 +176,36 @@ void SimulationRugby::dessinerBallon(sf::RenderWindow &window) {
     window.draw(ballonShape);
 }
 
-void SimulationRugby::bougerEquipes() {
+void SimulationRugby::circulerJoueurs() {
     std::vector<Joueur>& joueursEquipe1 = getEquipe1().getJoueurs();  // Obtenez une référence aux joueurs
     std::vector<Joueur>& joueursEquipe2 = getEquipe2().getJoueurs();  // Obtenez une référence aux joueurs
 
     for (Joueur & joueur : joueursEquipe1) {
-        joueur.seDeplacer(getBallon(), uniform(0, 1), uniform(0, 1));
+        joueur.circuler(uniform(-.1f, .1f), uniform(-.1f, .1f));
     }
 
     for (Joueur & joueur : joueursEquipe2) {
-        joueur.seDeplacer(getBallon(), uniform(0, 1), uniform(0, 1));
+        joueur.circuler(uniform(-.1f, .1f), uniform(-.1f, .1f));
     }
 }
 
-void SimulationRugby::bougerBallon() {
+void SimulationRugby::circulerBallon() {
     getBallon().seDeplacer(uniform(-.1f, .1f), uniform(-.1f, .1f));
+}
+
+void SimulationRugby::bougerEquipes() {
+    // std::vector<Joueur>& joueursEquipe1 = getEquipe1().getJoueurs();  // Obtenez une référence aux joueurs
+    // std::vector<Joueur>& joueursEquipe2 = getEquipe2().getJoueurs();  // Obtenez une référence aux joueurs
+
+    // for (Joueur & joueur : joueursEquipe1) {
+    //     joueur.seDeplacer(getBallon(), uniform(0, 1), uniform(0, 1));
+    // }
+
+    // for (Joueur & joueur : joueursEquipe2) {
+    //     joueur.seDeplacer(getBallon(), uniform(0, 1), uniform(0, 1));
+    // }
+}
+
+void SimulationRugby::bougerBallon() {
+
 }
