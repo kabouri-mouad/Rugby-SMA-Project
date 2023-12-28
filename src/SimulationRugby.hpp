@@ -16,12 +16,16 @@ class SimulationRugby {
     EquipeRugby equipe2{};
     Ballon ballon;
     static sf::Vector2f windowSize;
+    void init(sf::RenderWindow &window, sf::Sprite & sprite);
     void initialiserEquipes();
     void initialiserBallon();
     void dessinerEquipes(sf::RenderWindow &window);
     void dessinerBallon(sf::RenderWindow &window);
+    void circulerJoueurs();
+    void circulerBallon();
     void bougerEquipes();
     void bougerBallon();
+    bool marquerUnIci();
 };
 
 #endif // SIMULATION_RUGBY_HPP
