@@ -192,7 +192,6 @@ void SimulationRugby::dessinerEquipes(sf::RenderWindow &window) {
         joueurShape.setPosition(joueur.getPosition());
         window.draw(joueurShape);
     }
-
 }
 
 void SimulationRugby::dessinerBallon(sf::RenderWindow &window) {
