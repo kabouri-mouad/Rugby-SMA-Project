@@ -25,6 +25,7 @@ class SimulationRugby {
     void circulerBallon();
     void bougerEquipes();
     void bougerBallon();
+    bool marquerUnIci();
 };
 
 #endif // SIMULATION_RUGBY_HPP

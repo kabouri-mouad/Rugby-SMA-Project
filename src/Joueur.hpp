@@ -9,13 +9,14 @@ class Joueur {
         std::string role;
         sf::Vector2f position;
         int numero;
-        int vitesse;
-        int force;
+        float vitesse;
+        float force;
     public:
         Joueur();
-        Joueur(std::string nom, std::string role, int numero, int vitesse, int force, float posX, float posY);
+        Joueur(std::string nom, std::string role, int numero, float vitesse, float force, float posX, float posY);
+        std::string& getRole();
         void circuler(float positionX, float positionY);
-        void seDeplacer(Ballon & ballon, float nouvellePositionX, float nouvellePositionY);
+        void seDeplacer(const sf::Vector2f& positionBallon, float nouvellePositionX, float nouvellePositionY);
         sf::Vector2f getPosition() const;
 };
 

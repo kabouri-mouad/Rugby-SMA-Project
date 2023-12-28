@@ -20,6 +20,6 @@ int EquipeRugby::getNotesEquipe() const {
     return notesEquipe;
 }
 
-void EquipeRugby::attribuerNotesEquipe(int nouvellesNotes) {
-    notesEquipe = nouvellesNotes;
+void EquipeRugby::attribuerNotesEquipe(int notesAAjouter) {
+    notesEquipe += notesAAjouter;
 }
