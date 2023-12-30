@@ -13,10 +13,14 @@ all: main
 
 main: $(OBJECTS) $(SRC)
 	$(CXX) $(CXXFLAGS) $(SRC) $(OBJECTS) -o main $(SFML_INCLUDE) $(SFML_LIB)
+	@echo "Utilisez 'make run' pour executer l'application."
 
 # Rule to compile object files
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(SFML_INCLUDE) -c $< -o $@
+
+run: main
+	./main
 
 clean:
 	del main.exe
