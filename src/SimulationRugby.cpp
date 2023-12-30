@@ -35,7 +35,6 @@ void SimulationRugby::demarrer() {
     this->init(window, sprite);
 
     sf::Clock clock;  
-    sf::Time elapsed = clock.getElapsedTime();
 
     while (window.isOpen() && clock.getElapsedTime().asSeconds() < 300) {
         sf::Event event;
@@ -92,7 +91,6 @@ sf::Vector2f SimulationRugby::getWindowSize() {
 void SimulationRugby::init(sf::RenderWindow &window, sf::Sprite & sprite) {
 
     sf::Clock clock;  
-    sf::Time elapsed = clock.getElapsedTime();
     while(window.isOpen() && clock.getElapsedTime().asSeconds() < 5) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -232,9 +230,9 @@ void SimulationRugby::bougerEquipes() {
         if (role == "pilier" || role == "talonneur") {
             joueur.seDeplacer(positionBallon, uniform(0, 2), uniform(0, .1));
         } else if (role == "verrouillage" || role == "ailier" || role == "centre") {
-            joueur.seDeplacer(positionBallon, uniform(0, 1.5), uniform(0, .1));
+            joueur.seDeplacer(positionBallon, uniform(0, .3), uniform(0, .1));
         } else if (role == "demiMelee" || role == "demiOuverture") {
-            joueur.seDeplacer(positionBallon, uniform(0, .5), uniform(0, .1));
+            joueur.seDeplacer(positionBallon, uniform(0, .25), uniform(0, .1));
         } else if (role == "arriere") {
             joueur.seDeplacer(positionBallon, uniform(0, .2), uniform(0, .1));
         } else {
@@ -248,9 +246,9 @@ void SimulationRugby::bougerEquipes() {
         if (role == "pilier" || role == "talonneur") {
             joueur.seDeplacer(positionBallon, uniform(0, 2), uniform(0, .1));
         } else if (role == "verrouillage" || role == "ailier" || role == "centre") {
-            joueur.seDeplacer(positionBallon, uniform(0, 1.5), uniform(0, .1));
+            joueur.seDeplacer(positionBallon, uniform(0, .3), uniform(0, .1));
         } else if (role == "demiMelee" || role == "demiOuverture") {
-            joueur.seDeplacer(positionBallon, uniform(0, .5), uniform(0, .1));
+            joueur.seDeplacer(positionBallon, uniform(0, .25), uniform(0, .1));
         } else if (role == "arriere") {
             joueur.seDeplacer(positionBallon, uniform(0, .2), uniform(0, .1));
         } else {

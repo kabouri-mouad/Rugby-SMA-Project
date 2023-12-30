@@ -1,27 +1,22 @@
-SRC=Ballon.cpp Joueur.cpp SimulationRugby.cpp main.cpp
-#SRC=$(wildcard *.cpp)
-EXE=cpp5
+# List of source files
+SRC = Ballon.cpp Joueur.cpp EquipeRugby.cpp SimulationRugby.cpp main.cpp
 
-CXXFLAGS+=-Wall -Wextra -MMD -g -O2
-LDFLAGS=-IC:\SFML-2.6.1\include -LC:\SFML-2.6.1\lib -lsfml-graphics -lsfml-window -lsfml-system
+# Declaration of variables
+CXX = g++
+CXXFLAGS = -Wall -Wextra -std=c++11
+SFML_INCLUDE = -IC:\SFML-2.6.1\include
+SFML_LIB = -LC:\SFML-2.6.1\lib -lsfml-graphics -lsfml-window -lsfml-system
+OBJECTS = mt19937ar.o
 
-OBJ=$(addprefix build/,$(SRC:.cpp=.o))
-DEP=$(addprefix build/,$(SRC:.cpp=.d))
+# Compilation rules
+all: main
 
-all: $(EXE)
+main: $(OBJECTS) $(SRC)
+	$(CXX) $(CXXFLAGS) $(SRC) $(OBJECTS) -o main $(SFML_INCLUDE) $(SFML_LIB)
 
-$(EXE): $(OBJ)
-	$(CXX) -o $@ $^ $(LDFLAGS)
-
-build/mt19937ar.o: mt19937ar.c
-	@mkdir -p build
-	gcc -o $@ -c $<
-
-build/%.o: %.cpp
-	@mkdir -p build
-	$(CXX) $(CXXFLAGS) -o $@ -c $<
+# Rule to compile object files
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(SFML_INCLUDE) -c $< -o $@
 
 clean:
-	rm -rf build core *.gch $(EXE)
-
--include $(DEP)
+	del main.exe

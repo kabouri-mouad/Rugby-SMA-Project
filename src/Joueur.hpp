@@ -7,10 +7,10 @@ class Joueur {
     private:
         std::string nom;
         std::string role;
-        sf::Vector2f position;
         int numero;
         float vitesse;
         float force;
+        sf::Vector2f position;
     public:
         Joueur();
         Joueur(std::string nom, std::string role, int numero, float vitesse, float force, float posX, float posY);
