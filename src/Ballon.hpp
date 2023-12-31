@@ -1,3 +1,6 @@
+#ifndef BALLON_HPP
+#define BALLON_HPP
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,3 +20,5 @@ class Ballon {
         Equipe getEquipePossedante() const;
         void setEquipePossedante(Equipe nouvelleEquipe);
 };
+
+#endif // BALLON_HPP

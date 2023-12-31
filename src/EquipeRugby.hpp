@@ -1,3 +1,6 @@
+#ifndef EQUIPERUGBY_HPP
+#define EQUIPERUGBY_HPP
+
 #include "Joueur.hpp"
 
 class EquipeRugby {
@@ -14,3 +17,5 @@ class EquipeRugby {
         int getNotesEquipe() const;
         void attribuerNotesEquipe(int notesAAjouter);
 };
+
+#endif // EQUIPERUGBY_HPP

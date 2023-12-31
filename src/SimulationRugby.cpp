@@ -5,7 +5,7 @@ sf::Vector2f SimulationRugby::windowSize(1000.0f, 500.0f);
 
 void SimulationRugby::demarrer() {
 
-    //Initialisation du générateur MT
+    //Initialisation du générateur Mersenne Twister (MT)
     unsigned long init[4]={0x123, 0x234, 0x345, 0x456}, length=4;
     init_by_array(init, length);
 
@@ -44,6 +44,7 @@ void SimulationRugby::demarrer() {
         }
 
         if(marquerUnIci()) {
+            transformation(window, sprite);
             initialiserEquipes();
             initialiserBallon();
             this->init(window, sprite);
@@ -88,7 +89,7 @@ sf::Vector2f SimulationRugby::getWindowSize() {
     return windowSize;
 }
 
-void SimulationRugby::init(sf::RenderWindow &window, sf::Sprite & sprite) {
+void SimulationRugby::init(sf::RenderWindow& window, sf::Sprite& sprite) {
 
     sf::Clock clock;  
     while(window.isOpen() && clock.getElapsedTime().asSeconds() < 5) {
@@ -120,9 +121,9 @@ void SimulationRugby::initialiserEquipes() {
     equipe2.getJoueurs().clear();
 
     // Équipe 1
-    equipe1.ajouterJoueur(Joueur("J1E1", "pilier", 1, 0.1f, 10, 530, 400));
-    equipe1.ajouterJoueur(Joueur("J2E1", "talonneur", 2, 0.1f, 10, 520, 250));
-    equipe1.ajouterJoueur(Joueur("J3E1", "pilier", 3, 0.1f, 10, 530, 100));
+    equipe1.ajouterJoueur(Joueur("J1E1", "pilier", 1, 0.2f, 10, 530, 400));
+    equipe1.ajouterJoueur(Joueur("J2E1", "talonneur", 2, 0.3f, 10, 520, 250));
+    equipe1.ajouterJoueur(Joueur("J3E1", "pilier", 3, 0.2f, 10, 530, 100));
 
     equipe1.ajouterJoueur(Joueur("J4E1", "verrouillage", 4, 0.1f, 10, 580, 350));
     equipe1.ajouterJoueur(Joueur("J5E1", "verrouillage", 5, 0.1f, 10, 580, 150));
@@ -142,9 +143,9 @@ void SimulationRugby::initialiserEquipes() {
     equipe1.ajouterJoueur(Joueur("J15E1", "arriere", 15, 0.01f, 6, 900, 250));
 
     // Équipe 2
-    equipe2.ajouterJoueur(Joueur("J1E2", "pilier", 1, 0.1f, 10, 460, 100));
-    equipe2.ajouterJoueur(Joueur("J2E2", "talonneur", 2, 0.1f, 10, 470, 250));
-    equipe2.ajouterJoueur(Joueur("J3E2", "pilier", 3, 0.1f, 10, 460, 400));
+    equipe2.ajouterJoueur(Joueur("J1E2", "pilier", 1, 0.2f, 10, 460, 100));
+    equipe2.ajouterJoueur(Joueur("J2E2", "talonneur", 2, 0.3f, 10, 470, 250));
+    equipe2.ajouterJoueur(Joueur("J3E2", "pilier", 3, 0.2f, 10, 460, 400));
 
     equipe2.ajouterJoueur(Joueur("J4E2", "verrouillage", 4, 0.1f, 10, 400, 150));
     equipe2.ajouterJoueur(Joueur("J5E2", "verrouillage", 5, 0.1f, 10, 400, 350));
@@ -173,26 +174,53 @@ void SimulationRugby::initialiserBallon() {
     ballon.setPosition(posX, posY);
 }
 
-void SimulationRugby::dessinerEquipes(sf::RenderWindow &window) {
-    std::vector<Joueur>& joueursEquipe1 = getEquipe1().getJoueurs();  // Obtenez une référence aux joueurs
-    std::vector<Joueur>& joueursEquipe2 = getEquipe2().getJoueurs();  // Obtenez une référence aux joueurs
+void SimulationRugby::dessinerEquipes(sf::RenderWindow& window) {
+    std::vector<Joueur>& joueursEquipe1 = getEquipe1().getJoueurs();
+    std::vector<Joueur>& joueursEquipe2 = getEquipe2().getJoueurs();
 
     sf::CircleShape joueurShape(10.0f);
+    joueurShape.setOrigin(10.0f, 10.0f); // Définir l'origine au centre du cercle
 
-    joueurShape.setFillColor(sf::Color::Blue);
-    for (Joueur & joueur : joueursEquipe1) {
-        joueurShape.setPosition(joueur.getPosition());
-        window.draw(joueurShape);
+    sf::Font font;
+    if (!font.loadFromFile("../fonts/Roboto-Medium.ttf")) {
+        std::cerr << "Error : fichier introuvable !" << "\n";
     }
 
-    joueurShape.setFillColor(sf::Color::Red);
-    for (Joueur & joueur : joueursEquipe2) {
+    sf::Text numeroText;
+    numeroText.setFont(font);
+    numeroText.setCharacterSize(12);
+    numeroText.setFillColor(sf::Color::White);
+
+    // Dessiner les joueurs de l'équipe 1
+    joueurShape.setFillColor(sf::Color::Blue);
+    for (Joueur& joueur : joueursEquipe1) {
         joueurShape.setPosition(joueur.getPosition());
+
+        // Mettez le numéro au milieu de la forme
+        numeroText.setString(std::to_string(joueur.getNumero()));
+        sf::FloatRect textBounds = numeroText.getLocalBounds();
+        numeroText.setPosition(joueur.getPosition() - sf::Vector2f(textBounds.width / 2.0f, textBounds.height / 2.0f));
+
         window.draw(joueurShape);
+        window.draw(numeroText);
+    }
+
+    // Dessiner les joueurs de l'équipe 2
+    joueurShape.setFillColor(sf::Color::Red);
+    for (Joueur& joueur : joueursEquipe2) {
+        joueurShape.setPosition(joueur.getPosition());
+
+        // Mettez le numéro au milieu de la forme
+        numeroText.setString(std::to_string(joueur.getNumero()));
+        sf::FloatRect textBounds = numeroText.getLocalBounds();
+        numeroText.setPosition(joueur.getPosition() - sf::Vector2f(textBounds.width / 2.0f, textBounds.height / 2.0f));
+
+        window.draw(joueurShape);
+        window.draw(numeroText);
     }
 }
 
-void SimulationRugby::dessinerBallon(sf::RenderWindow &window) {
+void SimulationRugby::dessinerBallon(sf::RenderWindow& window) {
     sf::CircleShape ballonShape(7.0f);
     ballonShape.setFillColor(sf::Color::White);
 
@@ -282,4 +310,41 @@ bool SimulationRugby::marquerUnIci() {
         return true;
     }
     return false;
+}
+
+void SimulationRugby::transformation(sf::RenderWindow& window, sf::Sprite& sprite) {
+
+    Ballon& ballon = getBallon();
+
+    float posX = ballon.getPosition().x - 350.0f;
+    float posY = ballon.getPosition().y;
+
+    ballon.setPosition(posX, posY);
+
+    sf::Clock clock;  
+    while(window.isOpen() && clock.getElapsedTime().asSeconds() < 5) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+    }
+
+    while(window.isOpen() && clock.getElapsedTime().asSeconds() < 5) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        window.draw(sprite);
+
+        // Dessinez les joueurs et le ballon
+        dessinerEquipes(window);
+        dessinerBallon(window);
+        window.display();
+    }
+
 }
