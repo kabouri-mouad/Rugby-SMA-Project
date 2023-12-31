@@ -8,6 +8,10 @@ std::string& Joueur::getRole() {
     return role;
 }
 
+int Joueur::getNumero() {
+    return numero;
+}
+
 void Joueur::circuler(float positionX, float positionY) {
     position.x += positionX;
     position.y += positionY;

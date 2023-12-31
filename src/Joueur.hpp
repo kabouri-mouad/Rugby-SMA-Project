@@ -15,6 +15,7 @@ class Joueur {
         Joueur();
         Joueur(std::string nom, std::string role, int numero, float vitesse, float force, float posX, float posY);
         std::string& getRole();
+        int getNumero();
         void circuler(float positionX, float positionY);
         void seDeplacer(const sf::Vector2f& positionBallon, float nouvellePositionX, float nouvellePositionY);
         sf::Vector2f getPosition() const;
