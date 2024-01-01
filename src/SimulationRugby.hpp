@@ -26,7 +26,8 @@ class SimulationRugby {
     void bougerEquipes();
     void bougerBallon();
     bool marquerUnIci();
-    void transformationsf::RenderWindow& window, sf::Sprite& sprite
+    void transformation(sf::RenderWindow& window, sf::Sprite& sprite);
+    void bougerBallonTransformation();
 };
 
 #endif // SIMULATION_RUGBY_HPP
