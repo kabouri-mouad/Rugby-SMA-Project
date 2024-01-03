@@ -418,6 +418,10 @@ void SimulationRugby::bougerBallonTransformation() {
     getBallon().seDeplacer(uniform(0.0f, 2.0f), uniform(-7.0f, 7.0f));
 }
 
+void SimulationRugby::bougerBallonTransformation() {
+    getBallon().seDeplacer(uniform(0.0f, 2.0f), uniform(-5.0f, 5.0f));
+}
+
 bool SimulationRugby::marquerUnIci() {
     Ballon& ballon = getBallon();
     const sf::Vector2f& position = ballon.getPosition();
