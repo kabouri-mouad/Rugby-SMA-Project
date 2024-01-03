@@ -5,20 +5,21 @@
 
 class Joueur {
     private:
+        int numero;
         std::string nom;
         std::string role;
-        int numero;
         float vitesse;
         float force;
         sf::Vector2f position;
     public:
         Joueur();
-        Joueur(std::string nom, std::string role, int numero, float vitesse, float force, float posX, float posY);
+        Joueur(int numero, std::string nom, std::string role, float vitesse, float force, float posX, float posY);
         std::string& getRole();
         int getNumero();
+        sf::Vector2f getPosition() const;
+        void setPosition(float nouvellePositionX, float nouvellePositionY);
         void circuler(float positionX, float positionY);
         void seDeplacer(const sf::Vector2f& positionBallon, float nouvellePositionX, float nouvellePositionY);
-        sf::Vector2f getPosition() const;
 };
 
 #endif // JOUEUR_HPP

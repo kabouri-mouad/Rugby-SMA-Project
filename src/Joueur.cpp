@@ -2,7 +2,7 @@
 
 Joueur::Joueur(){}
 
-Joueur::Joueur(std::string nom, std::string role, int numero, float vitesse, float force, float posX, float posY) : nom(nom), role(role), numero(numero), vitesse(vitesse), force(force), position(posX, posY){}
+Joueur::Joueur(int numero, std::string nom, std::string role, float vitesse, float force, float posX, float posY) : numero(numero), nom(nom), role(role), vitesse(vitesse), force(force), position(posX, posY){}
 
 std::string& Joueur::getRole() {
     return role;
@@ -10,6 +10,15 @@ std::string& Joueur::getRole() {
 
 int Joueur::getNumero() {
     return numero;
+}
+
+sf::Vector2f Joueur::getPosition() const {
+  return position;
+};
+
+void Joueur::setPosition(float nouvellePositionX, float nouvellePositionY) {
+    position.x = nouvellePositionX;
+    position.y = nouvellePositionY;
 }
 
 void Joueur::circuler(float positionX, float positionY) {
@@ -33,7 +42,3 @@ void Joueur::seDeplacer(const sf::Vector2f& positionBallon, float nouvellePositi
     }
     // std::cout << nom << " se déplace vers la position [" << position.x << ", " << position.y << "]" << "\n";
 }
-
-sf::Vector2f Joueur::getPosition() const {
-  return position;
-};

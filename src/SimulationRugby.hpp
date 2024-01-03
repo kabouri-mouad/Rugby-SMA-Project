@@ -16,6 +16,8 @@ class SimulationRugby {
     EquipeRugby equipe2{};
     Ballon ballon;
     static sf::Vector2f windowSize;
+    void transformation(sf::RenderWindow& window, sf::Sprite& sprite);
+    void melee(sf::RenderWindow& window, sf::Sprite& sprite);
     void init(sf::RenderWindow& window, sf::Sprite& sprite);
     void initialiserEquipes();
     void initialiserBallon();
@@ -26,7 +28,6 @@ class SimulationRugby {
     void bougerEquipes();
     void bougerBallon();
     bool marquerUnIci();
-    void transformation(sf::RenderWindow& window, sf::Sprite& sprite);
     void bougerBallonTransformation();
 };
 
