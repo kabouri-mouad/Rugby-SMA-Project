@@ -67,6 +67,15 @@ void SimulationRugby::demarrer() {
             }
         }
 
+        rand = uniform(0, 1);
+
+        if(rand < 0.001) {
+            std::cout << "Melee Start" << "\n";
+            melee(window, sprite);
+            std::cout << "Melee terminer" << "\n";
+        }
+
+
         dessinerEquipes(window);
         dessinerBallon(window);
         window.display();
@@ -85,9 +94,8 @@ void SimulationRugby::transformation(sf::RenderWindow& window, sf::Sprite& sprit
     Equipe equipePossedante = ballon.getEquipePossedante();
     equipePossedante == EQUIPE_2 ? posX = position.x - 300.0f : posX = position.x + 300.0f; 
 
-    float posY = position.y;
 
-    ballon.setPosition(posX, posY);
+    ballon.setPosition(posX, position.y);
 
     sf::Clock clock1;  
     while(window.isOpen() && clock1.getElapsedTime().asSeconds() < 5) {
@@ -98,14 +106,14 @@ void SimulationRugby::transformation(sf::RenderWindow& window, sf::Sprite& sprit
         }
         window.clear();
         window.draw(sprite);
-
         dessinerEquipes(window);
         dessinerBallon(window);
+        circulerJoueurs();
         window.display();
     }
 
     sf::Clock clock2;
-    while(window.isOpen() && clock2.getElapsedTime().asSeconds() < 4) {
+    while(window.isOpen() && clock2.getElapsedTime().asSeconds() < 3) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
@@ -123,18 +131,70 @@ void SimulationRugby::transformation(sf::RenderWindow& window, sf::Sprite& sprit
         window.display();
     }
 
-    if(position.y > 240 && position.y < 250 && ballon.getEquipePossedante() == EQUIPE_1) {
+    if(position.y > 230 && position.y < 270 && position.x < 70) {
         equipe1.attribuerNotesEquipe(2);
-        ballon.setEquipePossedante(EQUIPE_2);
-        std::cout << "Equipe1 | " << equipe1.getNotesEquipe() << " : " << equipe2.getNotesEquipe() << " | Equipe2" << "\n";
     }
-
-    if(position.y > 240 && position.y < 250 && ballon.getEquipePossedante() == EQUIPE_2) {
+    if(position.y > 230 && position.y < 270 && position.x > 920){
         equipe2.attribuerNotesEquipe(2);
-        ballon.setEquipePossedante(EQUIPE_1);
-        std::cout << "Equipe1 | " << equipe1.getNotesEquipe() << " : " << equipe2.getNotesEquipe() << " | Equipe2" << "\n";
     }
 
+    if(ballon.getEquipePossedante() == EQUIPE_1) {
+        ballon.setEquipePossedante(EQUIPE_2);
+    }else {
+        ballon.setEquipePossedante(EQUIPE_1);
+    }
+    std::cout << "Equipe1 | " << equipe1.getNotesEquipe() << " : " << equipe2.getNotesEquipe() << " | Equipe2" << "\n";
+
+}
+
+void SimulationRugby::melee(sf::RenderWindow& window, sf::Sprite& sprite) {
+    Ballon& ballon = getBallon();
+    const sf::Vector2f& position = ballon.getPosition();
+
+    std::vector<Joueur>& joueursEquipe1 = getEquipe1().getJoueurs();  // Obtenez une référence aux joueurs
+    std::vector<Joueur>& joueursEquipe2 = getEquipe2().getJoueurs();  // Obtenez une référence aux joueurs
+    
+    joueursEquipe2[0].setPosition(position.x - 20.0f, position.y - 15.0f);
+    joueursEquipe2[1].setPosition(position.x - 20.0f, position.y);
+    joueursEquipe2[2].setPosition(position.x - 20.0f, position.y + 15.0f);
+
+
+    joueursEquipe1[0].setPosition(position.x + 20.0f, position.y - 15.0f);
+    joueursEquipe1[1].setPosition(position.x + 20.0f, position.y);
+    joueursEquipe1[2].setPosition(position.x + 20.0f, position.y + 15.0f);
+
+    sf::Clock clock1;  
+    while(window.isOpen() && clock1.getElapsedTime().asSeconds() < 10) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+        window.clear();
+        window.draw(sprite);
+        dessinerEquipes(window);
+        dessinerBallon(window);
+        window.display();
+    }
+
+    // sf::Clock clock2;
+    // while(window.isOpen() && clock2.getElapsedTime().asSeconds() < 3) {
+    //     sf::Event event;
+    //     while (window.pollEvent(event)) {
+    //         if (event.type == sf::Event::Closed)
+    //             window.close();
+    //     }
+
+    //     bougerBallonTransformation();
+
+    //     window.clear();
+    //     window.draw(sprite);
+
+    //     // Dessinez les joueurs et le ballon
+    //     dessinerEquipes(window);
+    //     dessinerBallon(window);
+    //     window.display();
+    // }
 }
 
 Ballon& SimulationRugby::getBallon() {
@@ -185,48 +245,48 @@ void SimulationRugby::initialiserEquipes() {
     equipe2.getJoueurs().clear();
 
     // Équipe 1
-    equipe1.ajouterJoueur(Joueur("J1E1", "pilier", 1, 0.2f, 10, 530, 400));
-    equipe1.ajouterJoueur(Joueur("J2E1", "talonneur", 2, 0.3f, 10, 520, 250));
-    equipe1.ajouterJoueur(Joueur("J3E1", "pilier", 3, 0.2f, 10, 530, 100));
+    equipe1.ajouterJoueur(Joueur(1, "J1E1", "pilier", 0.2f, 10, 530, 400));
+    equipe1.ajouterJoueur(Joueur(2, "J2E1", "talonneur", 0.3f, 10, 520, 250));
+    equipe1.ajouterJoueur(Joueur(3, "J3E1", "pilier", 0.2f, 10, 530, 100));
 
-    equipe1.ajouterJoueur(Joueur("J4E1", "verrouillage", 4, 0.1f, 10, 580, 350));
-    equipe1.ajouterJoueur(Joueur("J5E1", "verrouillage", 5, 0.1f, 10, 580, 150));
+    equipe1.ajouterJoueur(Joueur(4, "J4E1", "verrouillage", 0.1f, 10, 580, 350));
+    equipe1.ajouterJoueur(Joueur(5, "J5E1", "verrouillage", 0.1f, 10, 580, 150));
 
-    equipe1.ajouterJoueur(Joueur("J6E1", "ailier", 6, 0.1f, 10, 620, 400));
-    equipe1.ajouterJoueur(Joueur("J8E1", "centre", 8, 0.1f, 10, 620, 250));
-    equipe1.ajouterJoueur(Joueur("J7E1", "ailier", 7, 0.1f, 10, 620, 100));
+    equipe1.ajouterJoueur(Joueur(6, "J6E1", "ailier", 0.1f, 10, 620, 400));
+    equipe1.ajouterJoueur(Joueur(8, "J8E1", "centre", 0.1f, 10, 620, 250));
+    equipe1.ajouterJoueur(Joueur(7, "J7E1", "ailier", 0.1f, 10, 620, 100));
 
-    equipe1.ajouterJoueur(Joueur("J9E1", "demiMelee", 9, 0.1f, 6, 670, 350));
-    equipe1.ajouterJoueur(Joueur("J10E1", "demiOuverture", 10, 0.1f, 6, 670, 150));
+    equipe1.ajouterJoueur(Joueur(9, "J9E1", "demiMelee", 0.1f, 6, 670, 350));
+    equipe1.ajouterJoueur(Joueur(10, "J10E1", "demiOuverture", 0.1f, 6, 670, 150));
 
-    equipe1.ajouterJoueur(Joueur("J11E1", "ailier", 11, 0.1f, 5, 750, 450));
-    equipe1.ajouterJoueur(Joueur("J12E1", "centre", 12, 0.1f, 5, 750, 350));
-    equipe1.ajouterJoueur(Joueur("J13E1", "centre", 13, 0.1f, 5, 750, 150));
-    equipe1.ajouterJoueur(Joueur("J14E1", "ailier", 14, 0.1f, 5, 750, 50));
+    equipe1.ajouterJoueur(Joueur(11, "J11E1", "ailier", 0.1f, 5, 750, 450));
+    equipe1.ajouterJoueur(Joueur(12, "J12E1", "centre", 0.1f, 5, 750, 350));
+    equipe1.ajouterJoueur(Joueur(13, "J13E1", "centre", 0.1f, 5, 750, 150));
+    equipe1.ajouterJoueur(Joueur(14, "J14E1", "ailier", 0.1f, 5, 750, 50));
 
-    equipe1.ajouterJoueur(Joueur("J15E1", "arriere", 15, 0.01f, 6, 900, 250));
+    equipe1.ajouterJoueur(Joueur(15, "J15E1", "arriere", 0.01f, 6, 900, 250));
 
     // Équipe 2
-    equipe2.ajouterJoueur(Joueur("J1E2", "pilier", 1, 0.2f, 10, 460, 100));
-    equipe2.ajouterJoueur(Joueur("J2E2", "talonneur", 2, 0.3f, 10, 470, 250));
-    equipe2.ajouterJoueur(Joueur("J3E2", "pilier", 3, 0.2f, 10, 460, 400));
+    equipe2.ajouterJoueur(Joueur(1, "J1E2", "pilier", 0.2f, 10, 460, 100));
+    equipe2.ajouterJoueur(Joueur(2, "J2E2", "talonneur", 0.3f, 10, 470, 250));
+    equipe2.ajouterJoueur(Joueur(3, "J3E2", "pilier", 0.2f, 10, 460, 400));
 
-    equipe2.ajouterJoueur(Joueur("J4E2", "verrouillage", 4, 0.1f, 10, 400, 150));
-    equipe2.ajouterJoueur(Joueur("J5E2", "verrouillage", 5, 0.1f, 10, 400, 350));
+    equipe2.ajouterJoueur(Joueur(4, "J4E2", "verrouillage", 0.1f, 10, 400, 150));
+    equipe2.ajouterJoueur(Joueur(5, "J5E2", "verrouillage", 0.1f, 10, 400, 350));
 
-    equipe2.ajouterJoueur(Joueur("J6E2", "ailier", 6, 0.1f, 10, 350, 100));
-    equipe2.ajouterJoueur(Joueur("J8E2", "centre", 8, 0.1f, 10, 350, 250));
-    equipe2.ajouterJoueur(Joueur("J7E2", "ailier", 7, 0.1f, 10, 350, 400));
+    equipe2.ajouterJoueur(Joueur(6, "J6E2", "ailier", 0.1f, 10, 350, 100));
+    equipe2.ajouterJoueur(Joueur(8, "J8E2", "centre", 0.1f, 10, 350, 250));
+    equipe2.ajouterJoueur(Joueur(7, "J7E2", "ailier", 0.1f, 10, 350, 400));
     
-    equipe2.ajouterJoueur(Joueur("J9E2", "demiMelee", 9, 0.1f, 10, 300, 150));
-    equipe2.ajouterJoueur(Joueur("J10E2", "demiOuverture", 10, 0.1f, 10, 300, 350));
+    equipe2.ajouterJoueur(Joueur(9, "J9E2", "demiMelee", 0.1f, 10, 300, 150));
+    equipe2.ajouterJoueur(Joueur(10, "J10E2", "demiOuverture", 0.1f, 10, 300, 350));
 
-    equipe2.ajouterJoueur(Joueur("J11E2", "ailier", 11, 0.1f, 10, 220, 50));
-    equipe2.ajouterJoueur(Joueur("J12E2", "centre", 12, 0.1f, 10, 220, 150));
-    equipe2.ajouterJoueur(Joueur("J13E2", "centre", 13, 0.1f, 10, 220, 350));
-    equipe2.ajouterJoueur(Joueur("J14E2", "ailier", 14, 0.1f, 10, 220, 450));
+    equipe2.ajouterJoueur(Joueur(11, "J11E2", "ailier", 0.1f, 10, 220, 50));
+    equipe2.ajouterJoueur(Joueur(12, "J12E2", "centre", 0.1f, 10, 220, 150));
+    equipe2.ajouterJoueur(Joueur(13, "J13E2", "centre", 0.1f, 10, 220, 350));
+    equipe2.ajouterJoueur(Joueur(14, "J14E2", "ailier", 0.1f, 10, 220, 450));
 
-    equipe2.ajouterJoueur(Joueur("J15E2", "arriere", 15, 0.01f, 10, 100, 250));
+    equipe2.ajouterJoueur(Joueur(15, "J15E2", "arriere", 0.01f, 10, 100, 250));
 
 }
 
@@ -322,11 +382,11 @@ void SimulationRugby::bougerEquipes() {
         if (role == "pilier" || role == "talonneur") {
             joueur.seDeplacer(positionBallon, uniform(0, 2), uniform(0, .1));
         } else if (role == "verrouillage" || role == "ailier" || role == "centre") {
-            joueur.seDeplacer(positionBallon, uniform(0, .3), uniform(0, .1));
+            joueur.seDeplacer(positionBallon, uniform(0, 2), uniform(0, .1));
         } else if (role == "demiMelee" || role == "demiOuverture") {
-            joueur.seDeplacer(positionBallon, uniform(0, .25), uniform(0, .1));
+            joueur.seDeplacer(positionBallon, uniform(0, 2), uniform(0, .1));
         } else if (role == "arriere") {
-            joueur.seDeplacer(positionBallon, uniform(0, .2), uniform(0, .1));
+            joueur.seDeplacer(positionBallon, uniform(0, 1), uniform(0, .1));
         } else {
             // Gestion pour d'autres rôles non couverts
             std::cout << "Role non pris en charge pour l'équipe 1 : " << role << "\n";
@@ -338,11 +398,11 @@ void SimulationRugby::bougerEquipes() {
         if (role == "pilier" || role == "talonneur") {
             joueur.seDeplacer(positionBallon, uniform(0, 2), uniform(0, .1));
         } else if (role == "verrouillage" || role == "ailier" || role == "centre") {
-            joueur.seDeplacer(positionBallon, uniform(0, .3), uniform(0, .1));
+            joueur.seDeplacer(positionBallon, uniform(0, 2), uniform(0, .1));
         } else if (role == "demiMelee" || role == "demiOuverture") {
-            joueur.seDeplacer(positionBallon, uniform(0, .25), uniform(0, .1));
+            joueur.seDeplacer(positionBallon, uniform(0, 2), uniform(0, .1));
         } else if (role == "arriere") {
-            joueur.seDeplacer(positionBallon, uniform(0, .2), uniform(0, .1));
+            joueur.seDeplacer(positionBallon, uniform(0, 1), uniform(0, .1));
         } else {
             // Gestion pour d'autres rôles non couverts
             std::cout << "Role non pris en charge pour l'équipe 1 : " << role << "\n";
@@ -351,11 +411,11 @@ void SimulationRugby::bougerEquipes() {
 }
 
 void SimulationRugby::bougerBallon() {
-    getBallon().seDeplacer(uniform(0.0f, 0.1f), uniform(-2, 2));
+    getBallon().seDeplacer(uniform(0.0f, 0.2f), uniform(-2, 2));
 }
 
 void SimulationRugby::bougerBallonTransformation() {
-    getBallon().seDeplacer(uniform(0.0f, 2.0f), uniform(-5.0f, 5.0f));
+    getBallon().seDeplacer(uniform(0.0f, 2.0f), uniform(-7.0f, 7.0f));
 }
 
 bool SimulationRugby::marquerUnIci() {
@@ -364,16 +424,14 @@ bool SimulationRugby::marquerUnIci() {
     EquipeRugby& equipe1 = getEquipe1();
     EquipeRugby& equipe2 = getEquipe2();
 
-    if(position.x < 60 && position.y > 20 && position.y < 460 && ballon.getEquipePossedante() == EQUIPE_1 && (position.y < 240 || position.y > 250)) {
+    if(position.x < 70 && position.y > 20 && position.y < 460 && ballon.getEquipePossedante() == EQUIPE_1 && (position.y < 240 || position.y > 250)) {
         equipe1.attribuerNotesEquipe(5);
-        ballon.setEquipePossedante(EQUIPE_2);
         std::cout << "Equipe1 | " << equipe1.getNotesEquipe() << " : " << equipe2.getNotesEquipe() << " | Equipe2" << "\n";
         return true;
     }
 
-    if(position.x > 940 && position.y > 40 && position.y < 460 && ballon.getEquipePossedante() == EQUIPE_2  && (position.y < 240 || position.y > 250)) {
+    if(position.x > 910 && position.y > 40 && position.y < 460 && ballon.getEquipePossedante() == EQUIPE_2  && (position.y < 240 || position.y > 250)) {
         equipe2.attribuerNotesEquipe(5);
-        ballon.setEquipePossedante(EQUIPE_1);
         std::cout << "Equipe1 | " << equipe1.getNotesEquipe() << " : " << equipe2.getNotesEquipe() << " | Equipe2" << "\n";
         return true;
     }
