@@ -154,14 +154,47 @@ void SimulationRugby::melee(sf::RenderWindow& window, sf::Sprite& sprite) {
     std::vector<Joueur>& joueursEquipe1 = getEquipe1().getJoueurs();  // Obtenez une référence aux joueurs
     std::vector<Joueur>& joueursEquipe2 = getEquipe2().getJoueurs();  // Obtenez une référence aux joueurs
     
-    joueursEquipe2[0].setPosition(position.x - 20.0f, position.y - 15.0f);
-    joueursEquipe2[1].setPosition(position.x - 20.0f, position.y);
-    joueursEquipe2[2].setPosition(position.x - 20.0f, position.y + 15.0f);
+    // Equipe 2
+    joueursEquipe2[0].setPosition(position.x - 10.0f, position.y - 15.0f);
+    joueursEquipe2[1].setPosition(position.x - 10.0f, position.y);
+    joueursEquipe2[2].setPosition(position.x - 10.0f, position.y + 15.0f);
 
+    joueursEquipe2[3].setPosition(position.x - 30.0f, position.y - 10.0f);
+    joueursEquipe2[4].setPosition(position.x - 30.0f, position.y + 10.0f);
+    joueursEquipe2[5].setPosition(position.x - 30.0f, position.y - 25.0f);
+    joueursEquipe2[6].setPosition(position.x - 30.0f, position.y + 25.0f);
 
-    joueursEquipe1[0].setPosition(position.x + 20.0f, position.y - 15.0f);
-    joueursEquipe1[1].setPosition(position.x + 20.0f, position.y);
-    joueursEquipe1[2].setPosition(position.x + 20.0f, position.y + 15.0f);
+    joueursEquipe2[7].setPosition(position.x - 50.0f, position.y);
+
+    joueursEquipe2[8].setPosition(position.x - 10.0f, position.y - 45.0f);
+
+    joueursEquipe2[9].setPosition(position.x - 80.0f, position.y - 80.0f);
+    joueursEquipe2[10].setPosition(position.x - 80.0f, position.y - 100.0f);
+    joueursEquipe2[11].setPosition(position.x - 80.0f, position.y - 10.0f);
+    joueursEquipe2[12].setPosition(position.x - 80.0f, position.y + 40.0f);
+    joueursEquipe2[13].setPosition(position.x - 80.0f, position.y + 80.0f);
+    joueursEquipe2[14].setPosition(position.x - 80.0f, position.y + 100.0f);
+
+    // Equipe 1
+    joueursEquipe1[0].setPosition(position.x + 10.0f, position.y - 15.0f);
+    joueursEquipe1[1].setPosition(position.x + 10.0f, position.y);
+    joueursEquipe1[2].setPosition(position.x + 10.0f, position.y + 15.0f);
+
+    joueursEquipe1[3].setPosition(position.x + 30.0f, position.y - 10.0f);
+    joueursEquipe1[4].setPosition(position.x + 30.0f, position.y + 10.0f);
+    joueursEquipe1[5].setPosition(position.x + 30.0f, position.y - 25.0f);
+    joueursEquipe1[6].setPosition(position.x + 30.0f, position.y + 25.0f);
+
+    joueursEquipe1[7].setPosition(position.x + 50.0f, position.y);
+
+    joueursEquipe1[8].setPosition(position.x + 10.0f, position.y - 45.0f);
+    
+    joueursEquipe1[9].setPosition(position.x + 80.0f, position.y - 80.0f);
+    joueursEquipe1[10].setPosition(position.x + 80.0f, position.y - 100.0f);
+    joueursEquipe1[11].setPosition(position.x + 80.0f, position.y - 10.0f);
+    joueursEquipe1[12].setPosition(position.x + 80.0f, position.y + 40.0f);
+    joueursEquipe1[13].setPosition(position.x + 80.0f, position.y + 80.0f);
+    joueursEquipe1[14].setPosition(position.x + 80.0f, position.y + 100.0f);
 
     sf::Clock clock1;  
     while(window.isOpen() && clock1.getElapsedTime().asSeconds() < 10) {
@@ -172,29 +205,14 @@ void SimulationRugby::melee(sf::RenderWindow& window, sf::Sprite& sprite) {
         }
         window.clear();
         window.draw(sprite);
+
+        circulerJoueurs();
+        circulerBallon();
+
         dessinerEquipes(window);
         dessinerBallon(window);
         window.display();
     }
-
-    // sf::Clock clock2;
-    // while(window.isOpen() && clock2.getElapsedTime().asSeconds() < 3) {
-    //     sf::Event event;
-    //     while (window.pollEvent(event)) {
-    //         if (event.type == sf::Event::Closed)
-    //             window.close();
-    //     }
-
-    //     bougerBallonTransformation();
-
-    //     window.clear();
-    //     window.draw(sprite);
-
-    //     // Dessinez les joueurs et le ballon
-    //     dessinerEquipes(window);
-    //     dessinerBallon(window);
-    //     window.display();
-    // }
 }
 
 Ballon& SimulationRugby::getBallon() {
@@ -253,8 +271,8 @@ void SimulationRugby::initialiserEquipes() {
     equipe1.ajouterJoueur(Joueur(5, "J5E1", "verrouillage", 0.1f, 10, 580, 150));
 
     equipe1.ajouterJoueur(Joueur(6, "J6E1", "ailier", 0.1f, 10, 620, 400));
-    equipe1.ajouterJoueur(Joueur(8, "J8E1", "centre", 0.1f, 10, 620, 250));
     equipe1.ajouterJoueur(Joueur(7, "J7E1", "ailier", 0.1f, 10, 620, 100));
+    equipe1.ajouterJoueur(Joueur(8, "J8E1", "centre", 0.1f, 10, 620, 250));
 
     equipe1.ajouterJoueur(Joueur(9, "J9E1", "demiMelee", 0.1f, 6, 670, 350));
     equipe1.ajouterJoueur(Joueur(10, "J10E1", "demiOuverture", 0.1f, 6, 670, 150));
@@ -275,8 +293,8 @@ void SimulationRugby::initialiserEquipes() {
     equipe2.ajouterJoueur(Joueur(5, "J5E2", "verrouillage", 0.1f, 10, 400, 350));
 
     equipe2.ajouterJoueur(Joueur(6, "J6E2", "ailier", 0.1f, 10, 350, 100));
-    equipe2.ajouterJoueur(Joueur(8, "J8E2", "centre", 0.1f, 10, 350, 250));
     equipe2.ajouterJoueur(Joueur(7, "J7E2", "ailier", 0.1f, 10, 350, 400));
+    equipe2.ajouterJoueur(Joueur(8, "J8E2", "centre", 0.1f, 10, 350, 250));
     
     equipe2.ajouterJoueur(Joueur(9, "J9E2", "demiMelee", 0.1f, 10, 300, 150));
     equipe2.ajouterJoueur(Joueur(10, "J10E2", "demiOuverture", 0.1f, 10, 300, 350));
@@ -416,10 +434,6 @@ void SimulationRugby::bougerBallon() {
 
 void SimulationRugby::bougerBallonTransformation() {
     getBallon().seDeplacer(uniform(0.0f, 2.0f), uniform(-7.0f, 7.0f));
-}
-
-void SimulationRugby::bougerBallonTransformation() {
-    getBallon().seDeplacer(uniform(0.0f, 2.0f), uniform(-5.0f, 5.0f));
 }
 
 bool SimulationRugby::marquerUnIci() {
