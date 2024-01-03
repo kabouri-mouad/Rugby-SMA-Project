@@ -73,6 +73,70 @@ void SimulationRugby::demarrer() {
     }
 }
 
+void SimulationRugby::transformation(sf::RenderWindow& window, sf::Sprite& sprite) {
+
+    Ballon& ballon = getBallon();
+    const sf::Vector2f& position = ballon.getPosition();
+
+    EquipeRugby& equipe1 = getEquipe1();
+    EquipeRugby& equipe2 = getEquipe2();
+
+    float posX;
+    Equipe equipePossedante = ballon.getEquipePossedante();
+    equipePossedante == EQUIPE_2 ? posX = position.x - 300.0f : posX = position.x + 300.0f; 
+
+    float posY = position.y;
+
+    ballon.setPosition(posX, posY);
+
+    sf::Clock clock1;  
+    while(window.isOpen() && clock1.getElapsedTime().asSeconds() < 5) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+        window.clear();
+        window.draw(sprite);
+
+        dessinerEquipes(window);
+        dessinerBallon(window);
+        window.display();
+    }
+
+    sf::Clock clock2;
+    while(window.isOpen() && clock2.getElapsedTime().asSeconds() < 4) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        bougerBallonTransformation();
+
+        window.clear();
+        window.draw(sprite);
+
+        // Dessinez les joueurs et le ballon
+        dessinerEquipes(window);
+        dessinerBallon(window);
+        window.display();
+    }
+
+    if(position.y > 240 && position.y < 250 && ballon.getEquipePossedante() == EQUIPE_1) {
+        equipe1.attribuerNotesEquipe(2);
+        ballon.setEquipePossedante(EQUIPE_2);
+        std::cout << "Equipe1 | " << equipe1.getNotesEquipe() << " : " << equipe2.getNotesEquipe() << " | Equipe2" << "\n";
+    }
+
+    if(position.y > 240 && position.y < 250 && ballon.getEquipePossedante() == EQUIPE_2) {
+        equipe2.attribuerNotesEquipe(2);
+        ballon.setEquipePossedante(EQUIPE_1);
+        std::cout << "Equipe1 | " << equipe1.getNotesEquipe() << " : " << equipe2.getNotesEquipe() << " | Equipe2" << "\n";
+    }
+
+}
+
 Ballon& SimulationRugby::getBallon() {
     return ballon;
 }
@@ -290,6 +354,10 @@ void SimulationRugby::bougerBallon() {
     getBallon().seDeplacer(uniform(0.0f, 0.1f), uniform(-2, 2));
 }
 
+void SimulationRugby::bougerBallonTransformation() {
+    getBallon().seDeplacer(uniform(0.0f, 2.0f), uniform(-5.0f, 5.0f));
+}
+
 bool SimulationRugby::marquerUnIci() {
     Ballon& ballon = getBallon();
     const sf::Vector2f& position = ballon.getPosition();
@@ -310,41 +378,4 @@ bool SimulationRugby::marquerUnIci() {
         return true;
     }
     return false;
-}
-
-void SimulationRugby::transformation(sf::RenderWindow& window, sf::Sprite& sprite) {
-
-    Ballon& ballon = getBallon();
-
-    float posX = ballon.getPosition().x - 350.0f;
-    float posY = ballon.getPosition().y;
-
-    ballon.setPosition(posX, posY);
-
-    sf::Clock clock;  
-    while(window.isOpen() && clock.getElapsedTime().asSeconds() < 5) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-    }
-
-    while(window.isOpen() && clock.getElapsedTime().asSeconds() < 5) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        window.clear();
-        window.draw(sprite);
-
-        // Dessinez les joueurs et le ballon
-        dessinerEquipes(window);
-        dessinerBallon(window);
-        window.display();
-    }
-
 }
