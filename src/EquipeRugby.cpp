@@ -4,10 +4,6 @@ EquipeRugby::EquipeRugby() {}
 
 EquipeRugby::EquipeRugby(const std::string& nomEquipe) : nomEquipe(nomEquipe), notesEquipe(0) {}
 
-void EquipeRugby::ajouterJoueur(const Joueur& joueur) {
-    joueurs.push_back(joueur);
-}
-
 std::string& EquipeRugby::getNomEquipe() {
     return nomEquipe;
 }
@@ -22,4 +18,8 @@ int EquipeRugby::getNotesEquipe() const {
 
 void EquipeRugby::attribuerNotesEquipe(int notesAAjouter) {
     notesEquipe += notesAAjouter;
+}
+
+void EquipeRugby::ajouterJoueur(const Joueur& joueur) {
+    joueurs.push_back(joueur);
 }

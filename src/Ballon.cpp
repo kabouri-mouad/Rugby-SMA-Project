@@ -4,6 +4,22 @@ Ballon::Ballon(){}
 
 Ballon::Ballon(float posX, float posY): position(posX, posY) {}
 
+sf::Vector2f Ballon::getPosition() {
+    return position;
+}
+
+void Ballon::setPosition(float posX, float posY) {
+    position = sf::Vector2f(posX, posY);
+}
+
+Equipe Ballon::getEquipePossedante() const {
+    return equipePossedante;
+}
+
+void Ballon::setEquipePossedante(Equipe nouvelleEquipe) {
+    equipePossedante = nouvelleEquipe;
+}
+
 void Ballon::seDeplacer(float nouvellePositionX, float nouvellePositionY) {
     
     if(this->equipePossedante == EQUIPE_2) {
@@ -22,20 +38,4 @@ void Ballon::seDeplacer(float nouvellePositionX, float nouvellePositionY) {
     }
 
     // std::cout << "Le ballon se déplace vers la position [" << position.x << ", " << position.y << "]" << std::endl;
-}
-
-sf::Vector2f Ballon::getPosition() {
-    return position;
-}
-
-void Ballon::setPosition(float posX, float posY) {
-    position = sf::Vector2f(posX, posY);
-}
-
-Equipe Ballon::getEquipePossedante() const {
-    return equipePossedante;
-}
-
-void Ballon::setEquipePossedante(Equipe nouvelleEquipe) {
-    equipePossedante = nouvelleEquipe;
 }

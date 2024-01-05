@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 #include "Equipe.hpp"
 
 class Ballon {
@@ -14,11 +15,11 @@ class Ballon {
     public:
         Ballon();
         Ballon(float posX, float posY);
-        void seDeplacer(float nouvellePositionX, float nouvellePositionY);
         sf::Vector2f getPosition();
         void setPosition(float posX, float posY);
         Equipe getEquipePossedante() const;
         void setEquipePossedante(Equipe nouvelleEquipe);
+        void seDeplacer(float nouvellePositionX, float nouvellePositionY);
 };
 
 #endif // BALLON_HPP

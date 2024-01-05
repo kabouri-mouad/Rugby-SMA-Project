@@ -3,6 +3,10 @@
 
 sf::Vector2f SimulationRugby::windowSize(1000.0f, 500.0f);
 
+// Initialisation des variables statiques
+std::mutex SimulationRugby::mutexTempsRestant;
+sf::Time SimulationRugby::tempsRestant;
+
 void SimulationRugby::demarrer() {
 
     //Initialisation du générateur Mersenne Twister (MT)
@@ -36,11 +40,35 @@ void SimulationRugby::demarrer() {
 
     sf::Clock clock;  
 
+
+    // Lancer un thread pour afficher le temps restant
+    std::thread tempsThread(afficherTempsRestant);
+
+    sf::Font font;
+    if (!font.loadFromFile("../fonts/Roboto-Medium.ttf")) {
+        std::cerr << "Error : fichier introuvable !" << "\n";
+    }
+
+    sf::Text texteTempsRestant("", font, 20);
+    texteTempsRestant.setPosition(480, 10);
+    texteTempsRestant.setFillColor(sf::Color::Black);
+
+    int minutes, secondes;
+
     while (window.isOpen() && clock.getElapsedTime().asSeconds() < 300) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+        }
+
+        // Affichez le temps restant à partir de la variable partagée
+        {
+            std::lock_guard<std::mutex> lock(mutexTempsRestant);
+            // Mettez à jour le texte
+            minutes = static_cast<int>(tempsRestant.asSeconds()) / 60;
+            secondes = static_cast<int>(tempsRestant.asSeconds()) % 60;
+            texteTempsRestant.setString(std::to_string(minutes) + ":" + std::to_string(secondes) );
         }
 
         if(marquerUnIci()) {
@@ -52,6 +80,9 @@ void SimulationRugby::demarrer() {
 
         window.clear();
         window.draw(sprite);
+
+        // Dessiner le texte
+        window.draw(texteTempsRestant);
 
         bougerBallon();
         bougerEquipes();
@@ -69,7 +100,7 @@ void SimulationRugby::demarrer() {
 
         rand = uniform(0, 1);
 
-        if(rand < 0.001) {
+        if(rand < 0.0001) {
             std::cout << "Melee Start" << "\n";
             melee(window, sprite);
             std::cout << "Melee terminer" << "\n";
@@ -79,6 +110,22 @@ void SimulationRugby::demarrer() {
         dessinerEquipes(window);
         dessinerBallon(window);
         window.display();
+    }
+    // Attendre que le thread tempsThread se termine avant de quitter
+    tempsThread.join();
+}
+
+// Fonction pour afficher le temps restant dans un thread séparé
+void SimulationRugby::afficherTempsRestant() {
+    sf::Clock clock;
+    while (clock.getElapsedTime().asSeconds() < 300) {
+        {
+            std::lock_guard<std::mutex> lock(mutexTempsRestant);
+            tempsRestant = sf::seconds(300 - clock.getElapsedTime().asSeconds());
+        }
+
+        // Ajoutez une pause pour éviter une utilisation excessive du processeur
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     }
 }
 

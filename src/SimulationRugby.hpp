@@ -2,6 +2,8 @@
 #define SIMULATION_RUGBY_HPP
 
 #include "EquipeRugby.hpp"
+#include <thread>
+#include <mutex>
 
 class SimulationRugby {
   public:
@@ -29,6 +31,12 @@ class SimulationRugby {
     void bougerBallon();
     bool marquerUnIci();
     void bougerBallonTransformation();
+    // Fonction pour afficher le temps restant
+    static void afficherTempsRestant();
+
+    // Mutex pour synchroniser l'accès à tempsRestant
+    static std::mutex mutexTempsRestant;
+    static sf::Time tempsRestant;
 };
 
 #endif // SIMULATION_RUGBY_HPP
