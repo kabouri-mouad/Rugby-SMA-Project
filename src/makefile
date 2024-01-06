@@ -24,3 +24,5 @@ run: main
 
 clean:
 	del main.exe
+
+	

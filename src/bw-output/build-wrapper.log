@@ -1,0 +1,155 @@
+Sat Jan 06 21:28:08 2024: build-wrapper, version 6.41.1 (win-x86-64)
+Sat Jan 06 21:28:08 2024: isWow64: 0
+Sat Jan 06 21:28:08 2024: windows version: 6.2, service pack: 0.0, build number: 9200, product type: 1
+Sat Jan 06 21:28:08 2024: current directory: C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src
+Sat Jan 06 21:28:08 2024: cwd: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src>
+Sat Jan 06 21:28:08 2024: out-dir absolute path: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\bw-output>
+Sat Jan 06 21:28:08 2024: command line received: <g++ Ballon.cpp Joueur.cpp EquipeRugby.cpp SimulationRugby.cpp  main.cpp mt19937ar.o -o main -IC:\SFML-2.6.1\include -LC:\SFML-2.6.1\lib -lsfml-graphics -lsfml-window -lsfml-system>
+Sat Jan 06 21:28:08 2024: initializing json file
+Sat Jan 06 21:28:08 2024: starting debug cycle
+Sat Jan 06 21:28:08 2024: process created with pid: 2648
+Sat Jan 06 21:28:08 2024: image path name: <C:\mingw64\bin\g++.exe>
+Sat Jan 06 21:28:08 2024: command line: <g++ Ballon.cpp Joueur.cpp EquipeRugby.cpp SimulationRugby.cpp  main.cpp mt19937ar.o -o main -IC:\SFML-2.6.1\include -LC:\SFML-2.6.1\lib -lsfml-graphics -lsfml-window -lsfml-system>
+Sat Jan 06 21:28:08 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:08 2024: isWow64: 0
+Sat Jan 06 21:28:08 2024: env0: <=::=::\>
+Sat Jan 06 21:28:08 2024: env1: <=C:=C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src>
+Sat Jan 06 21:28:08 2024: env2: <=ExitCode=00000000>
+Sat Jan 06 21:28:08 2024: env3: <ALLUSERSPROFILE=C:\ProgramData>
+Sat Jan 06 21:28:08 2024: env4: <ANDROID_HOME=C:\Users\Kabouri\AppData\Local\Android\Sdk>
+Sat Jan 06 21:28:08 2024: env5: <ANDROID_SDK_ROOT=C:\Users\Kabouri\AppData\Local\Android\Sdk>
+Sat Jan 06 21:28:08 2024: env6: <APPDATA=C:\Users\Kabouri\AppData\Roaming>
+Sat Jan 06 21:28:08 2024: env7: <ChocolateyInstall=C:\ProgramData\chocolatey>
+Sat Jan 06 21:28:08 2024: env8: <ChocolateyLastPathUpdate=133436107603793787>
+Sat Jan 06 21:28:08 2024: env9: <CHROME_BIN=C:\Program Files\Google\Chrome\Application\chrome.exe>
+Sat Jan 06 21:28:08 2024: env10: <CommonProgramFiles=C:\Program Files\Common Files>
+Sat Jan 06 21:28:08 2024: env11: <CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files>
+Sat Jan 06 21:28:08 2024: env12: <CommonProgramW6432=C:\Program Files\Common Files>
+Sat Jan 06 21:28:08 2024: env13: <COMPUTERNAME=DESKTOP-KTVPD5V>
+Sat Jan 06 21:28:08 2024: env14: <ComSpec=C:\Windows\system32\cmd.exe>
+Sat Jan 06 21:28:08 2024: env15: <CYGWIN=wincmdln>
+Sat Jan 06 21:28:08 2024: env16: <DriverData=C:\Windows\System32\Drivers\DriverData>
+Sat Jan 06 21:28:08 2024: env17: <HOMEDRIVE=C:>
+Sat Jan 06 21:28:08 2024: env18: <HOMEPATH=\Users\Kabouri>
+Sat Jan 06 21:28:08 2024: env19: <IntelliJ IDEA=C:\Program Files\JetBrains\IntelliJ IDEA 2022.2.3\bin;>
+Sat Jan 06 21:28:08 2024: env20: <JAVA_HOME=C:\Program Files\Java\jdk-17.0.5>
+Sat Jan 06 21:28:08 2024: env21: <LOCALAPPDATA=C:\Users\Kabouri\AppData\Local>
+Sat Jan 06 21:28:08 2024: env22: <LOGONSERVER=\\DESKTOP-KTVPD5V>
+Sat Jan 06 21:28:08 2024: env23: <MYSQL_HOME=C:\mysql-8.0.31\bin>
+Sat Jan 06 21:28:08 2024: env24: <NUMBER_OF_PROCESSORS=4>
+Sat Jan 06 21:28:08 2024: env25: <OneDrive=C:\Users\Kabouri\OneDrive>
+Sat Jan 06 21:28:08 2024: env26: <OneDriveConsumer=C:\Users\Kabouri\OneDrive>
+Sat Jan 06 21:28:08 2024: env27: <ORACLE_HOME=C:\oraclexemouad\app\oracle\product\11.2.0\server\bin>
+Sat Jan 06 21:28:08 2024: env28: <OS=Windows_NT>
+Sat Jan 06 21:28:08 2024: env29: <Path=C:\oraclexemouad\app\oracle\product\11.2.0\server\bin;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Java\jdk-17.0.5\bin;C:\Program Files\Git\cmd;C:\oraclexe\app\oracle\product\11.2.0\server;C:\mysql-8.0.31\bin;C:\ProgramData\ComposerSetup\bin;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\node.js\;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Users\Kabouri\AppData\Local\Programs\Python\Python38;C:\Users\Kabouri\AppData\Local\Programs\Python\Python38\Scripts;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;C:\SFML-2.6.1\bin;C:\mingw64\bin;C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\build-wrapper-win-x86;C:\sonar-scanner-5.0.1.3006\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Kabouri\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA 2022.2.3\bin;C:\oraclexe\app\oracle\product\11.2.0\server;C:\Users\Kabouri\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Kabouri\AppData\Roaming\Composer\vendor\bin;C:\Program Files\Azure Data Studio\bin;C:\Users\Kabouri\AppData\Roaming\npm;C:\Users\Kabouri\AppData\Local\Programs\Python\Python38;C:\Users\Kabouri\AppData\Local\Programs\Python\Python38\Scripts;C:\Users\Kabouri\.dotnet\tools;C:\mingw64\bin;C:\SFML-2.6.1\bin;C:\Users\Kabouri\Downloads\dotnet-msbuild-195e7f5;C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\build-wrapper-win-x86;C:\sonar-scanner-5.0.1.3006\bin;>
+Sat Jan 06 21:28:08 2024: env30: <PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC>
+Sat Jan 06 21:28:08 2024: env31: <PROCESSOR_ARCHITECTURE=AMD64>
+Sat Jan 06 21:28:08 2024: env32: <PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 78 Stepping 3, GenuineIntel>
+Sat Jan 06 21:28:08 2024: env33: <PROCESSOR_LEVEL=6>
+Sat Jan 06 21:28:08 2024: env34: <PROCESSOR_REVISION=4e03>
+Sat Jan 06 21:28:08 2024: env35: <ProgramData=C:\ProgramData>
+Sat Jan 06 21:28:08 2024: env36: <ProgramFiles=C:\Program Files>
+Sat Jan 06 21:28:08 2024: env37: <ProgramFiles(x86)=C:\Program Files (x86)>
+Sat Jan 06 21:28:08 2024: env38: <ProgramW6432=C:\Program Files>
+Sat Jan 06 21:28:08 2024: env39: <PROMPT=$P$G>
+Sat Jan 06 21:28:08 2024: env40: <PSModulePath=C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\>
+Sat Jan 06 21:28:08 2024: env41: <PUBLIC=C:\Users\Public>
+Sat Jan 06 21:28:08 2024: env42: <SESSIONNAME=Console>
+Sat Jan 06 21:28:08 2024: env43: <SystemDrive=C:>
+Sat Jan 06 21:28:08 2024: env44: <SystemRoot=C:\Windows>
+Sat Jan 06 21:28:08 2024: env45: <TEMP=C:\Users\Kabouri\AppData\Local\Temp>
+Sat Jan 06 21:28:08 2024: env46: <TMP=C:\Users\Kabouri\AppData\Local\Temp>
+Sat Jan 06 21:28:08 2024: env47: <USERDOMAIN=DESKTOP-KTVPD5V>
+Sat Jan 06 21:28:08 2024: env48: <USERDOMAIN_ROAMINGPROFILE=DESKTOP-KTVPD5V>
+Sat Jan 06 21:28:08 2024: env49: <USERNAME=Kabouri>
+Sat Jan 06 21:28:08 2024: env50: <USERPROFILE=C:\Users\Kabouri>
+Sat Jan 06 21:28:08 2024: env51: <VBOX_MSI_INSTALL_PATH=C:\Program Files\Oracle\VirtualBox\>
+Sat Jan 06 21:28:08 2024: env52: <windir=C:\Windows>
+Sat Jan 06 21:28:08 2024: env53: <ZES_ENABLE_SYSMAN=1>
+Sat Jan 06 21:28:08 2024: env54: <_NO_DEBUG_HEAP=1>
+Sat Jan 06 21:28:08 2024: process created with pid: 12332
+Sat Jan 06 21:28:08 2024: image path name: <C:\mingw64\bin\..\libexec\gcc\x86_64-w64-mingw32\13.1.0\cc1plus.exe>
+Sat Jan 06 21:28:08 2024: command line: <C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/cc1plus.exe -quiet -I C:\SFML-2.6.1\include -iprefix C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/ -D_REENTRANT Ballon.cpp -quiet -dumpdir main- -dumpbase Ballon.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -o C:\Users\Kabouri\AppData\Local\Temp\ccghw0Hy.s>
+Sat Jan 06 21:28:08 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:08 2024: isWow64: 0
+Sat Jan 06 21:28:08 2024: skipping process C:\mingw64\bin\..\libexec\gcc\x86_64-w64-mingw32\13.1.0\cc1plus.exe with pid: 12332
+Sat Jan 06 21:28:10 2024: process with pid 12332 exit with code: 0 (0x0)
+Sat Jan 06 21:28:10 2024: process created with pid: 2192
+Sat Jan 06 21:28:10 2024: image path name: <C:\mingw64\bin\..\lib\gcc\x86_64-w64-mingw32\13.1.0\..\..\..\..\x86_64-w64-mingw32\bin\as.exe>
+Sat Jan 06 21:28:10 2024: command line: <C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -I C:\SFML-2.6.1\include -o C:\Users\Kabouri\AppData\Local\Temp\ccACo1HS.o C:\Users\Kabouri\AppData\Local\Temp\ccghw0Hy.s>
+Sat Jan 06 21:28:10 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:10 2024: isWow64: 0
+Sat Jan 06 21:28:10 2024: skipping process C:\mingw64\bin\..\lib\gcc\x86_64-w64-mingw32\13.1.0\..\..\..\..\x86_64-w64-mingw32\bin\as.exe with pid: 2192
+Sat Jan 06 21:28:10 2024: process with pid 2192 exit with code: 0 (0x0)
+Sat Jan 06 21:28:10 2024: process created with pid: 9528
+Sat Jan 06 21:28:10 2024: image path name: <C:\mingw64\bin\..\libexec\gcc\x86_64-w64-mingw32\13.1.0\cc1plus.exe>
+Sat Jan 06 21:28:10 2024: command line: <C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/cc1plus.exe -quiet -I C:\SFML-2.6.1\include -iprefix C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/ -D_REENTRANT Joueur.cpp -quiet -dumpdir main- -dumpbase Joueur.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -o C:\Users\Kabouri\AppData\Local\Temp\ccghw0Hy.s>
+Sat Jan 06 21:28:10 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:10 2024: isWow64: 0
+Sat Jan 06 21:28:10 2024: skipping process C:\mingw64\bin\..\libexec\gcc\x86_64-w64-mingw32\13.1.0\cc1plus.exe with pid: 9528
+Sat Jan 06 21:28:11 2024: process with pid 9528 exit with code: 0 (0x0)
+Sat Jan 06 21:28:11 2024: process created with pid: 3436
+Sat Jan 06 21:28:11 2024: image path name: <C:\mingw64\bin\..\lib\gcc\x86_64-w64-mingw32\13.1.0\..\..\..\..\x86_64-w64-mingw32\bin\as.exe>
+Sat Jan 06 21:28:11 2024: command line: <C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -I C:\SFML-2.6.1\include -o C:\Users\Kabouri\AppData\Local\Temp\ccV3xDrU.o C:\Users\Kabouri\AppData\Local\Temp\ccghw0Hy.s>
+Sat Jan 06 21:28:11 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:11 2024: isWow64: 0
+Sat Jan 06 21:28:11 2024: skipping process C:\mingw64\bin\..\lib\gcc\x86_64-w64-mingw32\13.1.0\..\..\..\..\x86_64-w64-mingw32\bin\as.exe with pid: 3436
+Sat Jan 06 21:28:11 2024: process with pid 3436 exit with code: 0 (0x0)
+Sat Jan 06 21:28:11 2024: process created with pid: 11048
+Sat Jan 06 21:28:11 2024: image path name: <C:\mingw64\bin\..\libexec\gcc\x86_64-w64-mingw32\13.1.0\cc1plus.exe>
+Sat Jan 06 21:28:11 2024: command line: <C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/cc1plus.exe -quiet -I C:\SFML-2.6.1\include -iprefix C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/ -D_REENTRANT EquipeRugby.cpp -quiet -dumpdir main- -dumpbase EquipeRugby.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -o C:\Users\Kabouri\AppData\Local\Temp\ccghw0Hy.s>
+Sat Jan 06 21:28:11 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:11 2024: isWow64: 0
+Sat Jan 06 21:28:11 2024: skipping process C:\mingw64\bin\..\libexec\gcc\x86_64-w64-mingw32\13.1.0\cc1plus.exe with pid: 11048
+Sat Jan 06 21:28:13 2024: process with pid 11048 exit with code: 0 (0x0)
+Sat Jan 06 21:28:13 2024: process created with pid: 10208
+Sat Jan 06 21:28:13 2024: image path name: <C:\mingw64\bin\..\lib\gcc\x86_64-w64-mingw32\13.1.0\..\..\..\..\x86_64-w64-mingw32\bin\as.exe>
+Sat Jan 06 21:28:13 2024: command line: <C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -I C:\SFML-2.6.1\include -o C:\Users\Kabouri\AppData\Local\Temp\ccu3xTfz.o C:\Users\Kabouri\AppData\Local\Temp\ccghw0Hy.s>
+Sat Jan 06 21:28:13 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:13 2024: isWow64: 0
+Sat Jan 06 21:28:13 2024: skipping process C:\mingw64\bin\..\lib\gcc\x86_64-w64-mingw32\13.1.0\..\..\..\..\x86_64-w64-mingw32\bin\as.exe with pid: 10208
+Sat Jan 06 21:28:13 2024: process with pid 10208 exit with code: 0 (0x0)
+Sat Jan 06 21:28:13 2024: process created with pid: 2380
+Sat Jan 06 21:28:13 2024: image path name: <C:\mingw64\bin\..\libexec\gcc\x86_64-w64-mingw32\13.1.0\cc1plus.exe>
+Sat Jan 06 21:28:13 2024: command line: <C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/cc1plus.exe -quiet -I C:\SFML-2.6.1\include -iprefix C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/ -D_REENTRANT SimulationRugby.cpp -quiet -dumpdir main- -dumpbase SimulationRugby.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -o C:\Users\Kabouri\AppData\Local\Temp\ccghw0Hy.s>
+Sat Jan 06 21:28:13 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:13 2024: isWow64: 0
+Sat Jan 06 21:28:13 2024: skipping process C:\mingw64\bin\..\libexec\gcc\x86_64-w64-mingw32\13.1.0\cc1plus.exe with pid: 2380
+Sat Jan 06 21:28:15 2024: process with pid 2380 exit with code: 0 (0x0)
+Sat Jan 06 21:28:15 2024: process created with pid: 4904
+Sat Jan 06 21:28:15 2024: image path name: <C:\mingw64\bin\..\lib\gcc\x86_64-w64-mingw32\13.1.0\..\..\..\..\x86_64-w64-mingw32\bin\as.exe>
+Sat Jan 06 21:28:15 2024: command line: <C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -I C:\SFML-2.6.1\include -o C:\Users\Kabouri\AppData\Local\Temp\ccNN4Xgm.o C:\Users\Kabouri\AppData\Local\Temp\ccghw0Hy.s>
+Sat Jan 06 21:28:15 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:15 2024: isWow64: 0
+Sat Jan 06 21:28:15 2024: skipping process C:\mingw64\bin\..\lib\gcc\x86_64-w64-mingw32\13.1.0\..\..\..\..\x86_64-w64-mingw32\bin\as.exe with pid: 4904
+Sat Jan 06 21:28:15 2024: process with pid 4904 exit with code: 0 (0x0)
+Sat Jan 06 21:28:15 2024: process created with pid: 16732
+Sat Jan 06 21:28:15 2024: image path name: <C:\mingw64\bin\..\libexec\gcc\x86_64-w64-mingw32\13.1.0\cc1plus.exe>
+Sat Jan 06 21:28:15 2024: command line: <C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/cc1plus.exe -quiet -I C:\SFML-2.6.1\include -iprefix C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/ -D_REENTRANT main.cpp -quiet -dumpdir main- -dumpbase main.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -o C:\Users\Kabouri\AppData\Local\Temp\ccghw0Hy.s>
+Sat Jan 06 21:28:15 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:15 2024: isWow64: 0
+Sat Jan 06 21:28:15 2024: skipping process C:\mingw64\bin\..\libexec\gcc\x86_64-w64-mingw32\13.1.0\cc1plus.exe with pid: 16732
+Sat Jan 06 21:28:17 2024: process with pid 16732 exit with code: 0 (0x0)
+Sat Jan 06 21:28:17 2024: process created with pid: 13152
+Sat Jan 06 21:28:17 2024: image path name: <C:\mingw64\bin\..\lib\gcc\x86_64-w64-mingw32\13.1.0\..\..\..\..\x86_64-w64-mingw32\bin\as.exe>
+Sat Jan 06 21:28:17 2024: command line: <C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -I C:\SFML-2.6.1\include -o C:\Users\Kabouri\AppData\Local\Temp\cccmot6L.o C:\Users\Kabouri\AppData\Local\Temp\ccghw0Hy.s>
+Sat Jan 06 21:28:17 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:17 2024: isWow64: 0
+Sat Jan 06 21:28:17 2024: skipping process C:\mingw64\bin\..\lib\gcc\x86_64-w64-mingw32\13.1.0\..\..\..\..\x86_64-w64-mingw32\bin\as.exe with pid: 13152
+Sat Jan 06 21:28:17 2024: process with pid 13152 exit with code: 0 (0x0)
+Sat Jan 06 21:28:17 2024: process created with pid: 19548
+Sat Jan 06 21:28:17 2024: image path name: <C:\mingw64\bin\..\libexec\gcc\x86_64-w64-mingw32\13.1.0\collect2.exe>
+Sat Jan 06 21:28:17 2024: command line: <C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/collect2.exe -plugin C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/liblto_plugin.dll -plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\Kabouri\AppData\Local\Temp\ccdIr2Xh.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o main.exe C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/crtbegin.o -LC:\SFML-2.6.1\lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0 -LC:/mingw64/bin/../lib/gcc -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../.. C:\Users\Kabouri\AppData\Local\Temp\ccACo1HS.o C:\Users\Kabouri\AppData\Local\Temp\ccV3xDrU.o C:\Users\Kabouri\AppData\Local\Temp\ccu3xTfz.o C:\Users\Kabouri\AppData\Local\Temp\ccNN4Xgm.o C:\Users\Kabouri\AppData\Local\Temp\cccmot6L.o mt19937ar.o -lsfml-graphics -lsfml-window -lsfml-system -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/crtend.o>
+Sat Jan 06 21:28:17 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:17 2024: isWow64: 0
+Sat Jan 06 21:28:17 2024: skipping process C:\mingw64\bin\..\libexec\gcc\x86_64-w64-mingw32\13.1.0\collect2.exe with pid: 19548
+Sat Jan 06 21:28:17 2024: process created with pid: 6680
+Sat Jan 06 21:28:17 2024: image path name: <C:\mingw64\bin\..\lib\gcc\x86_64-w64-mingw32\13.1.0\..\..\..\..\x86_64-w64-mingw32\bin\ld.exe>
+Sat Jan 06 21:28:17 2024: command line: <C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/liblto_plugin.dll -plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\Kabouri\AppData\Local\Temp\ccdIr2Xh.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o main.exe C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/crtbegin.o -LC:\SFML-2.6.1\lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0 -LC:/mingw64/bin/../lib/gcc -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../.. C:\Users\Kabouri\AppData\Local\Temp\ccACo1HS.o C:\Users\Kabouri\AppData\Local\Temp\ccV3xDrU.o C:\Users\Kabouri\AppData\Local\Temp\ccu3xTfz.o C:\Users\Kabouri\AppData\Local\Temp\ccNN4Xgm.o C:\Users\Kabouri\AppData\Local\Temp\cccmot6L.o mt19937ar.o -lsfml-graphics -lsfml-window -lsfml-system -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/crtend.o>
+Sat Jan 06 21:28:17 2024: working directory: <C:\Users\Kabouri\Desktop\ISIMA 2023-2024\Architecture Logiciel et qualité\SMA Project\Rugby\src\>
+Sat Jan 06 21:28:17 2024: isWow64: 0
+Sat Jan 06 21:28:17 2024: skipping process C:\mingw64\bin\..\lib\gcc\x86_64-w64-mingw32\13.1.0\..\..\..\..\x86_64-w64-mingw32\bin\ld.exe with pid: 6680
+Sat Jan 06 21:28:17 2024: process with pid 6680 exit with code: 0 (0x0)
+Sat Jan 06 21:28:17 2024: process with pid 19548 exit with code: 0 (0x0)
+Sat Jan 06 21:28:17 2024: process with pid 2648 exit with code: 0 (0x0)
+Sat Jan 06 21:28:17 2024: finalizing json file
